@@ -55,6 +55,8 @@ slurm_parser.add_argument(
     "-C", "--constraint", help="specify a list of constraints")
 slurm_parser.add_argument(
     "--mem", help="minimum amount of real memory")
+slurm_parser.add_argument(
+    "--gres", help="generic resource scheduling. used e.g., for gpus: --gres gpu:1")
 
 args = parser.parse_args()
 
@@ -95,7 +97,7 @@ if "resources" in job_properties:
 opt_keys = ["array", "account", "begin", "cpus_per_task",
             "depedency", "workdir", "error", "job_name", "mail_type",
             "mail_user", "ntasks", "nodes", "output", "partition",
-            "quiet", "time", "wrap", "constraint", "mem"]
+            "quiet", "time", "wrap", "constraint", "mem", "gres"]
 
 # Set default partition
 if arg_dict["partition"] is None:
