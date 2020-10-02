@@ -100,7 +100,7 @@ opt_keys = ["array", "account", "begin", "cpus_per_task",
             "quiet", "time", "wrap", "constraint", "mem", "gres"]
 
 # Set default partition
-if arg_dict["partition"] is None:
+if arg_dict["partition"] is None or arg_dict['partition'] == 'None':
     if not "":
         # partitions and SLURM - If not specified, the default behavior is to
         # allow the slurm controller to select the default partition as
