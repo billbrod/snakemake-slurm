@@ -1,5 +1,7 @@
 #!/bin/bash
 #SBATCH --export=NONE
+# properties = {properties}
+
 env > /scratch/$USER/overlay/env.log
 
 if [ "$SINGULARITY_CONTAINER" == "" ]; then
