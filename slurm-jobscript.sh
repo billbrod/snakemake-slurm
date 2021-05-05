@@ -1,7 +1,13 @@
 #!/bin/bash
-# #SBATCH --get-user-env
+#SBATCH --export=NONE
 # properties = {properties}
 # . /share/apps/anaconda3/5.3.1/etc/profile.d/conda.sh
 # conda activate sfp
-env > /scratch/wfb229/tmp/env.log
+env > /scratch/$USER/overlay/env.log
+
+if [ "$SINGULARITY_CONTAINER" == "" ]; then
+    export PATH=/scratch/$USER/overlay:$PATH
+fi
+
 {exec_job}
+
