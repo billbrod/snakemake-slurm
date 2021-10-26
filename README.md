@@ -10,4 +10,10 @@ directory (on Linux, `~/.config/snakemake/` or `/etc/xdg/snakemake/`,
 respectively) and pass `--profile snakemake-slurm` (or whatever the
 directory these files reside in is called) when running `snakemake`.
 
-Note that, as of 2021-May-05, this has been modified so it works with conda environments within singularity containers, for [NYU Greene](https://sites.google.com/a/nyu.edu/nyu-hpc/documentation/prince/packages/singularity-for-conda)
+This `singularity` branch is designed to work with a singulairty image
+containing the full project environment, including snakemake, and will allow the
+user to submit jobs from that singularity container and using that environment.
+For an example of how to use, see my
+[spatial-frequency-preferences](https://github.com/billbrod/spatial-frequency-preferences)
+project, especially the `run_singularity.py` script (and `build_docker` for how
+the image is created).
