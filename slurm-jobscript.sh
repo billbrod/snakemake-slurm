@@ -1,12 +1,5 @@
 #!/bin/bash
-#SBATCH --export=NONE
+#SBATCH --export=SINGULARITY_CONTAINER_PATH,SFP_PATH
 # properties = {properties}
 
-env > /scratch/$USER/overlay/env.log
-
-if [ "$SINGULARITY_CONTAINER" == "" ]; then
-    export PATH=/scratch/$USER/overlay:$PATH
-fi
-
-{exec_job}
-
+$SFP_PATH/run_singularity.py $SINGULARITY_CONTAINER_PATH '{exec_job:q}'
